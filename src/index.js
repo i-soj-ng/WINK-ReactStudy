@@ -4,7 +4,7 @@ import App from './App';
 import {MainPage} from './pages/MainPage';
 import {Mypage} from './pages/MyPage';
 import {LoginPage} from './pages/LoginPage';
-import {SignUp} from './components/login/SignUp'
+import {SignUp} from './pages/SignUp'
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route} from 'react-router-dom';
 

@@ -30,15 +30,4 @@ export async function createUser(username, email, password, last_name, first_nam
     });
     return await response.json();
 }
-
-async function readUsers() {
-    const response = await fetch(serverUri + '/user/', {
-        method: 'get',
-    }).then(response => response.json());
-    for(let i = 0; i < response.length; i++) {
-        if(localStorage.getItem('username') === response[i].username) {
-            return i + 1;
-        }
-    }
-}
 //회원가입 페이지 만들기
