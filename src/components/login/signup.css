@@ -1,0 +1,11 @@
+.signupBox {
+    border: 2px solid black;
+    margin-top: 10px;
+    text-align: center;
+}
+.IDspace, .emailspace, .PWspace, .FNspace, .LNspace {
+}
+#idText, #emailText, #pwText, #fnText, #lnText {
+    display: inline-block;
+    margin-right: 5px;
+}

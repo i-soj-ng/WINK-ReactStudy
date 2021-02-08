@@ -1,0 +1,42 @@
+.loginBox {
+    border: 2px solid black;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    height: 300px;
+}
+#idBlank {
+    margin-left: 12px;
+    height: 26px;
+}
+#pwBlank {
+    margin-left: 6px;
+    height: 26px;
+}
+#loginButton {
+    margin-left: 10px;
+    height: 26px;
+}
+.idSpace {
+    margin-left: 730px;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+.pwSpace {
+    margin-left: 726px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+#idTitle, #pwTitle {
+    display: inline-block;
+    font-size: 20px;
+}
+#loginTitle {
+    margin-left: 800px;
+    margin-bottom: 0;
+    margin-top: 45px;
+}
+#signup {
+    margin-left: 820px;
+
+}
