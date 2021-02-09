@@ -30,4 +30,3 @@ export async function createUser(username, email, password, last_name, first_nam
     });
     return await response.json();
 }
-//회원가입 페이지 만들기
