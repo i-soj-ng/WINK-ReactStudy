@@ -1,44 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import {Writing} from '../components/TimeLine/Writing';
 import {Timeline} from '../components/TimeLine/Timeline';
-import {createFeed, readFeed} from '../server/timelineServer';
+import {createFeed, readFeeds} from '../api/server';
+import {useHistory} from "react-router";
 
 export function TimeLinePage(props) {
     const [feeds, setFeeds] = useState([]);
-    const [inputName, setName] = useState([]);
-    const [inputContent, setContent] = useState([]);
-
-    const ChangeName = e => {
-        setName(e.target.value);
-    }
-    const ChangeContent = e => {
-        setContent(e.target.value);
-    }
-
-    async function onClickPost() {
-        console.log(inputName, inputContent);
-        await createFeed(inputName, inputContent);
-        setFeeds(await readFeed());
-    }
+    const history = useHistory();
 
     useEffect(() => {
-        const server = async () => {
-            setFeeds(await readFeed());
-            console.log(feeds)
-        };
-        server();
+        if (localStorage.getItem('token')) {
+            const server = async () => {
+                setFeeds(await readFeeds());
+            };
+            server();
+        } else {
+            alert('로그인을 해주세요.');
+        }
     }, []);
 
     return <>
         <Writing
-            inputNameValue={inputName}
-            inputContentValue={inputContent}
-            readFeed={readFeed}
+            readFeed={readFeeds}
             setFeeds={setFeeds}
             createFeed={createFeed}
-            onClickPostValue={onClickPost}
-            changeContent={ChangeContent}
-            changeName={ChangeName}
         />
         <Timeline
             feeds = {feeds}

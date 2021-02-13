@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import './loginpage.css';
 import * as api from '../api/server';
+import {useHistory} from 'react-router';
 
 export function LoginPage(props) {
+    const history = useHistory();
     const [input, setInput] = useState({
         username: '',
         password: '',
     });
+
     const setInputData = (key, data) => {
         setInput({
             ...input,
@@ -15,15 +18,14 @@ export function LoginPage(props) {
     }
 
     const login = async () => {
-        // const {history} = props;
         const token = await api.createToken(input.username, input.password);
         if(token.non_field_errors) {
             token.non_field_errors.map((e) => alert(e));
         } else {
             console.log(token)
-            localStorage.setItem('token', token);
+            localStorage.setItem('token', token.token);
             localStorage.setItem('username', input.username);
-            localStorage.setItem('password', input.password);
+            history.push('/timeline');
         }
     };
 
