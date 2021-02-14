@@ -5,6 +5,7 @@ import {MainPage} from './pages/MainPage';
 import {Mypage} from './pages/MyPage';
 import {LoginPage} from './pages/LoginPage';
 import {SignUp} from './pages/SignUp'
+import {TimeLineDetail} from "./pages/TimeLineDetail";
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route} from 'react-router-dom';
 
@@ -13,6 +14,7 @@ function Pages() {
         <div>
             <Route path="/"><MainPage></MainPage></Route>
             <Route path="/timeline"><App></App></Route>
+            <Route path="/detail/:id"><TimeLineDetail></TimeLineDetail></Route>
             <Route path="/mypage"><Mypage></Mypage></Route>
             <Route path="/login"><LoginPage></LoginPage></Route>
             <Route path="/signup"><SignUp></SignUp></Route>
