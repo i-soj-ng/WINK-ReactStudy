@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import * as api from '../api/server';
 import './signup.css';
+import {useHistory} from "react-router";
 
 export function SignUp(props) {
+    const history = useHistory();
     const [input, setInput] = useState({
         username: '',
         email: '',
@@ -16,14 +18,13 @@ export function SignUp(props) {
             [key]: data,
         })
     };
-    const join = async () => {
-        const {history} = props;
+    const join = async (props) => {
         const token = await api.createUser(input.username, input.email, input.password, input.last_name, input.first_name);
         if(token.non_field_errors) {
             token.non_field_errors.map((e) => alert(e))
         } else {
             console.log(token);
-            // history.push('/');
+            history.push('/');
         }
     }
     return (
